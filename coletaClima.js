@@ -1,16 +1,7 @@
 const { Client } = require('pg');
 const ClimaService = require('./climaService');
+const dbConfig = require('./dbConfig');
 
-// Configurações do banco de dados PostgreSQL
-const dbConfig = {
-  user: '',
-  host: 'localhost',
-  database: 'seu_banco_de_dados',
-  password: 'sua_senha',
-  port: 5432,
-};
-
-// Função para inserir os dados climáticos no banco de dados
 async function inserirDadosClimaticos(localizacao, temperatura, umidade) {
   const client = new Client(dbConfig);
   await client.connect();
@@ -27,7 +18,6 @@ async function inserirDadosClimaticos(localizacao, temperatura, umidade) {
   }
 }
 
-// Localização fornecida como argumento ao executar o script (pode ser definida por você)
 const localizacao = process.argv[2];
 
 if (!localizacao) {
@@ -35,16 +25,13 @@ if (!localizacao) {
   process.exit(1);
 }
 
-// Substitua 'sua_chave_de_api' pela sua chave de API do OpenWeatherMap
-const apiKey = 'sua_chave_de_api';
 
-// Instanciando a classe ClimaService com a chave de API
+const apiKey = '6aa4c372f15508b86bde02437c8bc053';
+
 const climaService = new ClimaService(apiKey);
 
-// Chamando a função obterDadosClimaticos da instância de ClimaService
 climaService.obterDadosClimaticos(localizacao)
   .then(({ temperatura, umidade }) => {
-    // Chame a função para inserir os dados climáticos no banco de dados
     inserirDadosClimaticos(localizacao, temperatura, umidade);
   })
   .catch(err => {

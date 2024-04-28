@@ -7,7 +7,7 @@ class ClimaService {
 
   async obterDadosClimaticos(localizacao) {
     try {
-      const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${localizacao}&appid=${this.apiKey}&units=metric`;
+      const apiUrl = `http://api.openweathermap.oSrg/data/2.5/weather?q=${localizacao}&appid=${this.apiKey}&units=metric`;
       const response = await fetch(apiUrl);
       const data = await response.json();
 
