@@ -6,21 +6,20 @@ class ClimaService {
   }
 
   async obterDadosClimaticos(localizacao) {
-    try {
-      const apiUrl = `http://api.openweathermap.oSrg/data/2.5/weather?q=${localizacao}&appid=${this.apiKey}&units=metric`;
-      const response = await fetch(apiUrl);
-      const data = await response.json();
+    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${localizacao}&appid=${this.apiKey}&units=metric`;
 
-      if (response.ok) {
-        const temperatura = data.main.temp;
-        const umidade = data.main.humidity;
-        return { temperatura: temperatura.toFixed(2), umidade: umidade.toFixed(2) };
-      } else {
-        throw new Error('Erro ao obter dados climáticos: ' + data.message);
-      }
-    } catch (err) {
-      throw new Error('Erro ao obter dados climáticos: ' + err.message);
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error('Erro ao obter dados climáticos: ' + response.statusText);
     }
+
+    const data = await response.json();
+
+    const temperatura = data.main.temp.toFixed(2);
+    const umidade = data.main.humidity.toFixed(2);
+
+    return { temperatura, umidade };
   }
 }
 
