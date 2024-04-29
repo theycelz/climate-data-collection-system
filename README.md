@@ -1,5 +1,5 @@
 
-```markdown
+
 # Sistema de Coleta de Dados Climáticos
 
 Este projeto Node.js com PostgreSQL tem como objetivo fornecer uma maneira simples de inserir e consultar dados de temperatura e umidade em um banco de dados para uma determinada cidade e país.
@@ -27,7 +27,7 @@ O projeto consiste em duas partes principais:
 
    ```bash
    git clone https://github.com/seu-usuario/nome-do-repositorio.git
-   ```
+
 
 3. Instale as dependências:
 
