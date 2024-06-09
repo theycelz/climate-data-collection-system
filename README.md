@@ -40,7 +40,8 @@ Infrastructure: Contém a configuração de banco de dados e scripts de interfac
 3. Instale as dependências:
 
    ```bash
-   npm install 
+   npm install
+   npm install axios
    ```
 
 4. Configure as variáveis de ambiente no arquivo `dbconfig`:
