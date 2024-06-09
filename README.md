@@ -12,26 +12,12 @@ O projeto consiste em duas partes principais:
 
 2. **Consulta de Dados:** Um script Node.js que permite ao usuário consultar os dados de temperatura e umidade armazenados no banco de dados para uma cidade e país específicos.
 
-##Organização
-
-climate-data-collection
-├── src
-│   ├── application
-│   │   └── services
-│   │       └── climaService.js
-│   ├── domain
-│   │   ├── entities
-│   │   │   └── clima.js
-│   │   └── repositories
-│   │       └── climaRepository.js
-│   ├── infrastructure
-│   │   ├── db
-│   │   │   └── dbConfig.js
-│   │   └── cli
-│   │       └── coletaClima.js
+## Organização
 
 Application: Contém os serviços da aplicação, responsáveis pela lógica de aplicação.
+
 Domain: Contém as entidades e repositórios que representam a lógica de domínio e regras de negócio.
+
 Infrastructure: Contém a configuração de banco de dados e scripts de interface (CLI).
 
 ## Tecnologias Utilizadas
